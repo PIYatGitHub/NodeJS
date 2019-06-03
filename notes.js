@@ -5,9 +5,15 @@ const getNotes = function () {
 
 const addNote = function (title, body) {
     const notes = loadNotes();
-    notes.push({title, body});
-    saveNotes(notes);
-    console.log('notes: ', notes);
+    let duplicates = notes.filter((a)=> {return a.title=== title;}).length;
+    if (!duplicates) {
+      notes.push({title, body});
+      saveNotes(notes);
+      console.log('Added a new note for you!');
+    } else {
+      console.log('Call in the FAIL ARMY! this note title is taken!');
+    }
+
 };
 
 const saveNotes = function (notes) {
