@@ -6,8 +6,21 @@ const notes = require('./notes');
 yargs.command({
   command: 'add',
   describe: 'add your note',
-  handler: function () {
-    console.log('fire up that add!');
+  builder:{
+    title: {
+        describe:'Note title',
+        demandOption: true,
+        type: 'string'
+    },
+    body: {
+      describe:'Note body',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler: function (argv) {
+    console.log('title: ' + argv.title);
+    console.log('body: ' + argv.body);
   }
 });
 
@@ -23,7 +36,7 @@ yargs.command({
   command: 'list',
   describe: 'list all your notes',
   handler: function () {
-    console.log('fire up that lit!');
+    console.log('fire up that list!');
   }
 });
 
@@ -35,4 +48,4 @@ yargs.command({
   }
 });
 
-console.log(yargs.argv);
+yargs.parse();
