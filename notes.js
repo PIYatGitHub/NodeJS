@@ -7,7 +7,7 @@ const getNotes = () => {
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-    let duplicates = notes.filter((a)=> {return a.title=== title;}).length;
+    let duplicates = notes.filter(a => a.title=== title).length;
     if (!duplicates) {
       notes.push({title, body});
       saveNotes(notes);
@@ -20,7 +20,7 @@ const addNote = (title, body) => {
 
 const removeNote = (title) => {
   const existingNotes = loadNotes();
-  let survivingNotes = existingNotes.filter((a)=> {return a.title !== title;});
+  let survivingNotes = existingNotes.filter(a => a.title !== title);
   saveNotes(survivingNotes);
   survivingNotes.length!==existingNotes.length?
     console.log(chalk.red.underline('Removing the note @' + title + '!!! Sorry there is no turning back! :(((')) :
@@ -48,4 +48,3 @@ module.exports = {
   addNote: addNote,
   removeNote: removeNote,
 };
-
