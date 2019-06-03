@@ -1,14 +1,38 @@
 'use strict';
-const notes = require('./notes');
-const validator = require('validator');
 const chalk = require('chalk');
+const yargs = require('yargs');
+const notes = require('./notes');
 
-const command = process.argv[2];
+yargs.command({
+  command: 'add',
+  describe: 'add your note',
+  handler: function () {
+    console.log('fire up that add!');
+  }
+});
 
-switch (command) {
-  case '-a': console.log('We are adding!'); break;
-  case '-r': console.log('We are reading!'); break;
-  case '-w': console.log('We are writing!'); break;
-  case '-d': console.log('We are deleting!'); break;
-  default: console.log('no command / invalid command provided!!!'); break;
-}
+yargs.command({
+  command: 'remove',
+  describe: 'remove your note',
+  handler: function () {
+    console.log('fire up that remove!');
+  }
+});
+
+yargs.command({
+  command: 'list',
+  describe: 'list all your notes',
+  handler: function () {
+    console.log('fire up that lit!');
+  }
+});
+
+yargs.command({
+  command: 'read',
+  describe: 'read a note',
+  handler: function () {
+    console.log('fire up that read!');
+  }
+});
+
+console.log(yargs.argv);
