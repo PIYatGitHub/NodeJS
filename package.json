@@ -1,0 +1,20 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "A notes application, running from the cmd!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "notes",
+    "notes_app",
+    "node.js"
+  ],
+  "author": "Peter Iv. Y.",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "validator": "^11.0.0"
+  }
+}
