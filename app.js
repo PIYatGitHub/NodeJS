@@ -1,5 +1,4 @@
 'use strict';
-const fs = require('fs');
 const chalk = require('chalk');
 const yargs = require('yargs');
 const notes = require('./notes');
@@ -20,8 +19,7 @@ yargs.command({
     }
   },
   handler: function (argv) {
-    console.log('title: ' + argv.title);
-    console.log('body: ' + argv.body);
+    notes.addNote(argv.title, argv.body);
   }
 });
 
