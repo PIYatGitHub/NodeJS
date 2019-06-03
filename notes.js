@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 const getNotes = function () {
   return 'returning your notes!';
 };
@@ -20,7 +21,10 @@ const removeNote = function (title) {
   const existingNotes = loadNotes();
   let survivingNotes = existingNotes.filter((a)=> {return a.title !== title;});
   saveNotes(survivingNotes);
-  console.log('removing the note @' + title + '!!! Sorry there is no turning back! :(((');
+  survivingNotes.length!==existingNotes.length?
+    console.log(chalk.red.underline('Removing the note @' + title + '!!! Sorry there is no turning back! :(((')) :
+    console.log(chalk.yellow.underline('We did not find your note...please, retry'));
+
 };
 
 const saveNotes = function (notes) {
