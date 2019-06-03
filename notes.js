@@ -17,6 +17,9 @@ const addNote = function (title, body) {
 };
 
 const removeNote = function (title) {
+  const existingNotes = loadNotes();
+  let survivingNotes = existingNotes.filter((a)=> {return a.title !== title;});
+  saveNotes(survivingNotes);
   console.log('removing the note @' + title + '!!! Sorry there is no turning back! :(((');
 };
 
