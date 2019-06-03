@@ -16,6 +16,10 @@ const addNote = function (title, body) {
 
 };
 
+const removeNote = function (title) {
+  console.log('removing the note @' + title + '!!! Sorry there is no turning back! :(((');
+};
+
 const saveNotes = function (notes) {
   const entry = JSON.stringify(notes);
   fs.writeFileSync('notes.json', entry);
@@ -33,6 +37,7 @@ const loadNotes = function(){
 
 module.exports = {
   getNotes:getNotes,
-  addNote: addNote
+  addNote: addNote,
+  removeNote: removeNote,
 };
 
