@@ -1,8 +1,10 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = () => {
-  return 'returning your notes!';
+const listNotes = () => {
+  const notes = loadNotes();
+  if(notes.length) console.log(chalk.green.underline("Your notes: \r\n"), notes);
+  else  console.log(chalk.yellow.underline('It appears you got 0 notes. Use the appropriate add command to get started!'));
 };
 
 const addNote = (title, body) => {
@@ -44,7 +46,7 @@ const loadNotes = () => {
 };
 
 module.exports = {
-  getNotes:getNotes,
+  listNotes:listNotes,
   addNote: addNote,
   removeNote: removeNote,
 };
