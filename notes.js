@@ -3,7 +3,10 @@ const chalk = require('chalk');
 
 const listNotes = () => {
   const notes = loadNotes();
-  if(notes.length) console.log(chalk.green.underline("Your notes: \r\n"), notes);
+  if(notes.length) {
+    console.log(chalk.green.underline("Your notes: \r\n"));
+    notes.forEach((n)=>console.log(n.title));
+  }
   else  console.log(chalk.yellow.underline('It appears you got 0 notes. Use the appropriate add command to get started!'));
 };
 
