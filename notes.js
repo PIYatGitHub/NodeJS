@@ -7,7 +7,8 @@ const listNotes = () => {
     console.log(chalk.green.underline("Your notes: \r\n"));
     notes.forEach((n)=>console.log(n.title));
   }
-  else  console.log(chalk.yellow.underline('It appears you got 0 notes. Use the appropriate add command to get started!'));
+  else {console.log(chalk.yellow.underline('It appears you got 0 notes. Use the appropriate add command to get started!'));
+  }
 };
 
 const addNote = (title, body) => {
@@ -39,7 +40,9 @@ const readNote = (title) => {
   if(target){
     console.log(chalk.inverse('Title:' + target.title));
     console.log('Body:' + target.body);
-  } else  console.log(chalk.yellow.underline('We did not find your note...did you do a typo?'));
+  } else  {
+    console.log(chalk.yellow.underline('We did not find your note...did you do a typo?'));
+  }
 };
 
 const saveNotes = (notes) => {
@@ -58,8 +61,8 @@ const loadNotes = () => {
 };
 
 module.exports = {
-  listNotes:listNotes,
-  addNote: addNote,
+  listNotes:  listNotes,
+  addNote:    addNote,
   removeNote: removeNote,
-  readNote: readNote
+  readNote:   readNote
 };
