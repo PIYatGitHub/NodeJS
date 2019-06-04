@@ -12,7 +12,7 @@ const listNotes = () => {
 
 const addNote = (title, body) => {
     const notes = loadNotes();
-    const duplicate = notes.filter(n => n.title === title);
+    const duplicate = notes.find(n => n.title === title);
     if (!duplicate) {
       notes.push({title, body});
       saveNotes(notes);
@@ -31,6 +31,15 @@ const removeNote = (title) => {
     console.log(chalk.red.underline('Removing the note @' + title + '!!! Sorry there is no turning back! :(((')) :
     console.log(chalk.yellow.underline('We did not find your note...please, retry'));
 
+};
+
+const readNote = (title) => {
+  const notes = loadNotes();
+  const target = notes.find(n => n.title === title);
+  if(target){
+    console.log(chalk.inverse('Title:' + target.title));
+    console.log('Body:' + target.body);
+  } else  console.log(chalk.yellow.underline('We did not find your note...did you do a typo?'));
 };
 
 const saveNotes = (notes) => {
@@ -52,4 +61,5 @@ module.exports = {
   listNotes:listNotes,
   addNote: addNote,
   removeNote: removeNote,
+  readNote: readNote
 };
